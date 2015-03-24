@@ -20,12 +20,28 @@ var embed = require('byline-embed');
 embed.render('component-name', data);
 ```
 
-This will render a component. You can also pass `'component'` explicitly as the third arg. It will look in `components/[name]/template.[extension]`, e.g. `components/entry/template.jade`
+This will render a component. It will look in `components/[name]/template.[extension]`. 
+
+e.g.
+
+```
+components/entry/template.jade
+components/coolparagraph/template.nunjucks
+```
+
+You can also pass `'component'` explicitly as the third arg.
 
 ### render a layout
 
 ```js
 embed.render('component-name', data, 'layout');
+```
+
+This will look in your root-level layouts folder, e.g.
+
+```
+layouts/index/template.nunjucks
+layouts/archive/template.jade
 ```
 
 ### Engines
