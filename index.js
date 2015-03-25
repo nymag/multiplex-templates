@@ -8,7 +8,7 @@ module.exports = function (instances) {
   if (instances) {
     _.forOwn(instances, function (instance, name) {
       // add them to our engines
-      engines.engines[name] = instance;
+      engines.set(name, instance);
     });
   }
 
