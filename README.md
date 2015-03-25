@@ -61,6 +61,24 @@ var env = multiplex.engines.nunjucks;
 env.addGlobal('key', 'value');
 ```
 
+## Cross-engine Embedding
+
+### Nunjucks
+
+To embed a template, use an `embed` filter in the parent template. If you configured your nunjucks environment with `autoescape: true` _[(highly recommended!)](http://wonko.com/post/html-escaping)_, remember to pass the resulting html through `|safe` so it's not escaped.
+
+```
+{{ data | embed('name') | safe }}
+```
+
+The `data` you pass in is then used to render the child template. You can optionally pass in additional data:
+
+```
+{{ data | embed('name', defaults) | safe }}
+```
+
+Properties in the `data` object will overwrite properties of the same name in the `defaults` object, as this uses lodash's fast `_.defaults()` method.
+
 ## Tests
 
 ```
