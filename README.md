@@ -53,12 +53,25 @@ Currently we support these engines:
 * mustache (coming soon!)
 * es6 template literals (coming soon!)
 
-This module exposes the instances of the templating engines, so you can add mixins/filters/globals/etc into them:
+This module exposes the instances of the templating engines, so you can add mixins/filters/globals/etc onto them:
 
 ```js
 var env = multiplex.engines.nunjucks;
 
 env.addGlobal('key', 'value');
+```
+
+You can also instantiate your own engines (and configure them however you like) and pass them into multiplex-templates.
+
+```js
+var env = require('nunjucks').configure('.', { watch: false }),
+  jadeEnv = require('jade'), // so cool, doesn't need config (⌐■_■)
+  multiplex = require('multiplex-templates')({
+    nunjucks: env,
+    jade: jadeEnv
+  });
+
+// multiplex.engines.nunjucks === env
 ```
 
 ## Cross-engine Embedding
