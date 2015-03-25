@@ -1,13 +1,13 @@
-# byline-embed
+# multiplex-templates
 Embed components in other components!
 
-[![Build Status](https://travis-ci.org/nymag/byline-embed.svg)](https://travis-ci.org/nymag/byline-embed)
-[![Code Climate](https://codeclimate.com/github/nymag/byline-embed/badges/gpa.svg)](https://codeclimate.com/github/nymag/byline-embed)
+[![Build Status](https://travis-ci.org/nymag/multiplex-templates.svg)](https://travis-ci.org/nymag/multiplex-templates)
+[![Code Climate](https://codeclimate.com/github/nymag/multiplex-templates/badges/gpa.svg)](https://codeclimate.com/github/nymag/multiplex-templates)
 
 ## Install
 
 ```
-npm install --save byline-embed
+npm install --save multiplex-templates
 ```
 
 ## Usage
@@ -15,9 +15,9 @@ npm install --save byline-embed
 ### render a component
 
 ```js
-var embed = require('byline-embed');
+var multiplex = require('multiplex-templates');
 
-embed.render('component-name', data);
+multiplex.render('component-name', data);
 ```
 
 This will render a component. It will look in `components/[name]/template.[extension]`. 
@@ -34,7 +34,7 @@ You can also pass `'component'` explicitly as the third arg.
 ### render a layout
 
 ```js
-embed.render('component-name', data, 'layout');
+multiplex.render('component-name', data, 'layout');
 ```
 
 This will look in your root-level layouts folder, e.g.
@@ -53,10 +53,10 @@ Currently we support these engines:
 * mustache (coming soon!)
 * es6 template literals (coming soon!)
 
-The Embed Service exposes the instances of the templating engines, so you can add mixins/filters/globals/etc into them:
+This module exposes the instances of the templating engines, so you can add mixins/filters/globals/etc into them:
 
 ```js
-var env = embed.engines.nunjucks;
+var env = multiplex.engines.nunjucks;
 
 env.addGlobal('key', 'value');
 ```

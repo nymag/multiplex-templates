@@ -1,7 +1,7 @@
 {
-  "name": "byline-embed",
-  "version": "0.1.1",
-  "description": "Easy embedding",
+  "name": "multiplex-templates",
+  "version": "0.1.2",
+  "description": "Easy embedding for multiple template languages",
   "main": "index.js",
   "scripts": {
     "test": "mocha test/index.js"
@@ -13,9 +13,9 @@
   "author": "New York Media",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nymag/byline-embed/issues"
+    "url": "https://github.com/nymag/multiplex-templates/issues"
   },
-  "homepage": "https://github.com/nymag/byline-embed",
+  "homepage": "https://github.com/nymag/multiplex-templates",
   "dependencies": {
     "glob": "^5.0.3",
     "jade": "^1.9.2",
