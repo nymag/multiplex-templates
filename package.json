@@ -1,6 +1,6 @@
 {
   "name": "byline-embed",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Easy embedding",
   "main": "index.js",
   "scripts": {
