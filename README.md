@@ -15,7 +15,7 @@ npm install --save multiplex-templates
 ### render a component
 
 ```js
-var multiplex = require('multiplex-templates');
+var multiplex = require('multiplex-templates')();
 
 multiplex.render('component-name', data);
 ```
