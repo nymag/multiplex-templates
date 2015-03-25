@@ -92,6 +92,16 @@ The `data` you pass in is then used to render the child template. You can option
 
 Properties in the `data` object will overwrite properties of the same name in the `defaults` object, as this uses lodash's fast `_.defaults()` method.
 
+### Jade
+
+Jade embedding is very similar. Multiplex-templates adds an `embed` function to the options passed into any jade template, which takes three arguments, `data`, `name`, and `defaults`. The logic is the same as the nunjucks filter.
+
+```jade
+section#foo
+  p.embedded
+    != embed(data, 'name')
+```
+
 ## Tests
 
 ```
