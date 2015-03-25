@@ -65,7 +65,7 @@ env.addGlobal('key', 'value');
 
 ### Nunjucks
 
-To embed a template, use an `embed` filter in the parent template. Remember to pass it through `|safe` so it's not escaped.
+To embed a template, use an `embed` filter in the parent template. If you configured your nunjucks environment with `autoescape: true` _[(highly recommended!)](http://wonko.com/post/html-escaping)_, remember to pass the resulting html through `|safe` so it's not escaped.
 
 ```
 {{ data | embed('name') | safe }}
