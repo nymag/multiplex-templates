@@ -94,12 +94,19 @@ Properties in the `data` object will overwrite properties of the same name in th
 
 ### Jade
 
-Jade embedding is very similar. Multiplex-templates adds an `embed` function to the options passed into any jade template, which takes three arguments, `data`, `name`, and `defaults`. The logic is the same as the nunjucks filter.
+Jade embedding is very similar. Multiplex-templates adds an `embed` function to the options passed into any jade template, which has the same logic as the nunjucks filter.
 
 ```jade
 section#foo
   p.embedded
     != embed(data, 'name')
+```
+
+As with the nunjucks template, you can also pass a `defaults` object into it as a third argument.
+```jade
+section#foo
+  p.embedded
+    != embed(data, 'name', defaults)
 ```
 
 ## Tests
