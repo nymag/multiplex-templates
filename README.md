@@ -46,12 +46,7 @@ layouts/archive/template.jade
 
 ### Engines
 
-Currently we support these engines:
-
-* nunjucks
-* jade
-* mustache (coming soon!)
-* es6 template literals (coming soon!)
+We support [all of the engines that consolidate.js supports](https://github.com/tj/consolidate.js#supported-template-engines).
 
 This module exposes the instances of the templating engines, so you can add mixins/filters/globals/etc onto them:
 
@@ -76,38 +71,39 @@ var env = require('nunjucks').configure('.', { watch: false }),
 
 ## Cross-engine Embedding
 
-### Nunjucks
+To embed a template, call the `embed` function in the parent template, passing in the name of the template you want to embed, plus (optionally) data and defaults objects. The `embed` function is available in all templating languages that allow functions inside template locals.
 
-To embed a template, use an `embed` filter in the parent template. If you configured your nunjucks environment with `autoescape: true` _[(highly recommended!)](http://wonko.com/post/html-escaping)_, remember to pass the resulting html through `|safe` so it's not escaped.
-
-```
-{{ data | embed('name') | safe }}
-```
-
-The `data` you pass in is then used to render the child template. You can optionally pass in additional data:
+**Nunjucks:**
 
 ```
-{{ data | embed('name', defaults) | safe }}
+{{ embed('name', data) | safe }}
 ```
 
-Properties in the `data` object will overwrite properties of the same name in the `defaults` object, as this uses lodash's fast `_.defaults()` method.
-
-### Jade
-
-Jade embedding is very similar. Multiplex-templates adds an `embed` function to the options passed into any jade template, which has the same logic as the nunjucks filter.
+**Jade:**
 
 ```jade
 section#foo
   p.embedded
-    != embed(data, 'name')
+    != embed('name', data)
 ```
 
-As with the nunjucks template, you can also pass a `defaults` object into it as a third argument.
+The `data` you pass in is then used to render the child template. You can optionally pass in additional data:
+
+**Nunjucks:**
+
+```
+{{ embed('name', data, defaults) | safe }}
+```
+
+**Jade:**
+
 ```jade
 section#foo
   p.embedded
     != embed(data, 'name', defaults)
 ```
+
+Properties in the `data` object will overwrite properties of the same name in the `defaults` object, as this uses lodash's fast `_.defaults()` method.
 
 ## Tests
 
