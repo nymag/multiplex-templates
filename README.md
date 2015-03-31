@@ -12,36 +12,21 @@ npm install --save multiplex-templates
 
 ## Usage
 
-### render a component
+### render a template
 
 ```js
 var multiplex = require('multiplex-templates')();
 
-multiplex.render('component-name', data);
+multiplex.render('path/to/template.ext', data);
 ```
 
-This will render a component. It will look in `components/[name]/template.[extension]`. 
+This will render a template. The templating engine it uses is determined by the template's extension.
 
 e.g.
 
 ```
-components/entry/template.jade
-components/coolparagraph/template.nunjucks
-```
-
-You can also pass `'component'` explicitly as the third arg.
-
-### render a layout
-
-```js
-multiplex.render('component-name', data, 'layout');
-```
-
-This will look in your root-level layouts folder, e.g.
-
-```
-layouts/index/template.nunjucks
-layouts/archive/template.jade
+components/paragraph/template.jade
+templates/header.nunjucks
 ```
 
 ### Engines
@@ -76,7 +61,7 @@ To embed a template, call the `embed` function in the parent template, passing i
 **Nunjucks:**
 
 ```
-{{ embed('name', data) | safe }}
+{{ embed('path/to/tpl.nunjucks', data) | safe }}
 ```
 
 **Jade:**
@@ -84,7 +69,7 @@ To embed a template, call the `embed` function in the parent template, passing i
 ```jade
 section#foo
   p.embedded
-    != embed('name', data)
+    != embed('path/to/tpl.jade', data)
 ```
 
 The `data` you pass in is then used to render the child template. You can optionally pass in additional data:
@@ -92,7 +77,7 @@ The `data` you pass in is then used to render the child template. You can option
 **Nunjucks:**
 
 ```
-{{ embed('name', data, defaults) | safe }}
+{{ embed('path/to/tpl.mustache', data, defaults) | safe }}
 ```
 
 **Jade:**
@@ -100,7 +85,7 @@ The `data` you pass in is then used to render the child template. You can option
 ```jade
 section#foo
   p.embedded
-    != embed(data, 'name', defaults)
+    != embed('path/to/tpl.ejs', data, defaults)
 ```
 
 Properties in the `data` object will overwrite properties of the same name in the `defaults` object, as this uses lodash's fast `_.defaults()` method.

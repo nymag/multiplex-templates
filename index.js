@@ -1,7 +1,7 @@
 'use strict';
 var _ = require('lodash'),
   cons = require('consolidate'),
-  embed = require('./lib/embed');
+  render = require('./lib/render');
 
 module.exports = function (instances) {
   // if instances are passed through, use them
@@ -14,7 +14,7 @@ module.exports = function (instances) {
 
   // expose the renderer and the engines
   return {
-    render: embed.render,
+    render: render,
     engines: cons.engines
   };
 };
