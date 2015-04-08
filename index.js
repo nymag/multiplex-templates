@@ -1,20 +1,20 @@
 'use strict';
-var _ = require('lodash'),
+var Self,
+  _ = require('lodash'),
   cons = require('consolidate'),
   render = require('./lib/render');
 
-module.exports = function (instances) {
+Self = function (instances) {
   // if instances are passed through, use them
   if (instances) {
     _.forOwn(instances, function (instance, name) {
       // add them to our engines
-      cons.requires[name] = instance;
+      Self.engines[name] = instance;
     });
   }
-
-  // expose the renderer and the engines
-  return {
-    render: render,
-    engines: cons.engines
-  };
+  return Self;
 };
+Self.render = render;
+Self.engines = cons.requires;
+
+module.exports = Self;
