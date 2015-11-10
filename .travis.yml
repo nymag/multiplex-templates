@@ -3,5 +3,4 @@ node_js:
   - 4.0
 os:
   - linux
-  - osx
   - windows
