@@ -21,7 +21,7 @@
     "deasync": "0.1",
     "glob": "^5.0",
     "jade": "^1.11",
-    "lodash": "^3.10",
+    "lodash": "^4.2.1",
     "nunjucks": "^2.2.0"
   },
   "devDependencies": {
