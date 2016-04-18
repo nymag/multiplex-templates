@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/nymag/multiplex-templates",
   "dependencies": {
-    "consolidate": "^0.13",
+    "consolidate": "^0.14.0",
     "deasync": "0.1",
     "glob": "^7.0.3",
     "jade": "^1.11",
