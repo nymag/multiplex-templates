@@ -19,7 +19,7 @@
   "dependencies": {
     "consolidate": "^0.13",
     "deasync": "0.1",
-    "glob": "^5.0",
+    "glob": "^7.0.3",
     "jade": "^1.11",
     "lodash": "^4.2.1",
     "nunjucks": "^2.2.0"
